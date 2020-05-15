@@ -1,0 +1,74 @@
+[
+  {
+    "_id": { "$oid": "5d4c0ca0c4c868c50a564e64" },
+    "post": { "$oid": "5d4c0c9bc4c868c50a564e63" },
+    "usuario": { "$oid": "5d4c0c54c4c868c50a564e5f" },
+    "fecha_creado": { "$date": "2019-08-08T11:50:56.551Z" },
+    "fecha_actualizado": { "$date": "2019-08-08T11:50:56.551Z" },
+    "__v": 0
+  },
+  {
+    "_id": { "$oid": "5d4c0ca4c4c868c50a564e65" },
+    "post": { "$oid": "5d4c0c76c4c868c50a564e61" },
+    "usuario": { "$oid": "5d4c0c54c4c868c50a564e5f" },
+    "fecha_creado": { "$date": "2019-08-08T11:51:00.322Z" },
+    "fecha_actualizado": { "$date": "2019-08-08T11:51:00.322Z" },
+    "__v": 0
+  },
+  {
+    "_id": { "$oid": "5d4c0d2dc4c868c50a564e6b" },
+    "post": { "$oid": "5d4c0c9bc4c868c50a564e63" },
+    "usuario": { "$oid": "5d4c0cd5c4c868c50a564e66" },
+    "fecha_creado": { "$date": "2019-08-08T11:53:17.833Z" },
+    "fecha_actualizado": { "$date": "2019-08-08T11:53:17.833Z" },
+    "__v": 0
+  },
+  {
+    "_id": { "$oid": "5d4c0da3c4c868c50a564e71" },
+    "post": { "$oid": "5d4c0da1c4c868c50a564e70" },
+    "usuario": { "$oid": "5d4c0d85c4c868c50a564e6e" },
+    "fecha_creado": { "$date": "2019-08-08T11:55:15.345Z" },
+    "fecha_actualizado": { "$date": "2019-08-08T11:55:15.345Z" },
+    "__v": 0
+  },
+  {
+    "_id": { "$oid": "5d4c0ddcc4c868c50a564e75" },
+    "post": { "$oid": "5d4c0dd5c4c868c50a564e74" },
+    "usuario": { "$oid": "5d4c0d85c4c868c50a564e6e" },
+    "fecha_creado": { "$date": "2019-08-08T11:56:12.423Z" },
+    "fecha_actualizado": { "$date": "2019-08-08T11:56:12.423Z" },
+    "__v": 0
+  },
+  {
+    "_id": { "$oid": "5d4c0e57c4c868c50a564e7a" },
+    "post": { "$oid": "5d4c0d5dc4c868c50a564e6d" },
+    "usuario": { "$oid": "5d4c0c54c4c868c50a564e5f" },
+    "fecha_creado": { "$date": "2019-08-08T11:58:15.087Z" },
+    "fecha_actualizado": { "$date": "2019-08-08T11:58:15.087Z" },
+    "__v": 0
+  },
+  {
+    "_id": { "$oid": "5d4c0e70c4c868c50a564e7d" },
+    "post": { "$oid": "5d4c0e36c4c868c50a564e79" },
+    "usuario": { "$oid": "5d4c0dfcc4c868c50a564e76" },
+    "fecha_creado": { "$date": "2019-08-08T11:58:40.865Z" },
+    "fecha_actualizado": { "$date": "2019-08-08T11:58:40.865Z" },
+    "__v": 0
+  },
+  {
+    "_id": { "$oid": "5d4c0e76c4c868c50a564e7e" },
+    "post": { "$oid": "5d4c0d5dc4c868c50a564e6d" },
+    "usuario": { "$oid": "5d4c0dfcc4c868c50a564e76" },
+    "fecha_creado": { "$date": "2019-08-08T11:58:46.411Z" },
+    "fecha_actualizado": { "$date": "2019-08-08T11:58:46.411Z" },
+    "__v": 0
+  },
+  {
+    "_id": { "$oid": "5d4c0e7ec4c868c50a564e7f" },
+    "post": { "$oid": "5d4c0c87c4c868c50a564e62" },
+    "usuario": { "$oid": "5d4c0dfcc4c868c50a564e76" },
+    "fecha_creado": { "$date": "2019-08-08T11:58:54.122Z" },
+    "fecha_actualizado": { "$date": "2019-08-08T11:58:54.122Z" },
+    "__v": 0
+  }
+]

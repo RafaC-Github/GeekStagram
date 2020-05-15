@@ -1,0 +1,50 @@
+[
+  {
+    "_id": { "$oid": "5d4c0c54c4c868c50a564e5f" },
+    "imagen": null,
+    "email": "estudiante@clontagram.com",
+    "username": "estudiante",
+    "password": "$2b$10$azKNafpKGT4D6vagdzVDkeoD25vOA0THcPAPFJpvkZ9TumLxL04R2",
+    "bio": "Estoy aprendiendo React.js",
+    "nombre": "estudiante appdelante",
+    "fecha_creado": { "$date": "2019-08-08T11:49:40.811Z" },
+    "fecha_actualizado": { "$date": "2019-08-08T11:49:40.811Z" },
+    "__v": 0
+  },
+  {
+    "_id": { "$oid": "5d4c0cd5c4c868c50a564e66" },
+    "imagen": "/imagenes/541e533b-2367-4aa8-b07e-9ffe469cb18a.jpg",
+    "email": "ricardo@clontagram.com",
+    "username": "rickitan",
+    "password": "$2b$10$1or3nd6s9AeTkKjDZC50tOA19vDSKX8GZYFjTov9VqX0By2zY3Ggu",
+    "bio": "¡Soy el profesor de este curso!",
+    "nombre": "ricardo macario",
+    "fecha_creado": { "$date": "2019-08-08T11:51:49.509Z" },
+    "fecha_actualizado": { "$date": "2019-08-08T11:52:56.669Z" },
+    "__v": 0
+  },
+  {
+    "_id": { "$oid": "5d4c0d85c4c868c50a564e6e" },
+    "imagen": null,
+    "email": "daniel@clontagram.com",
+    "username": "danmac",
+    "password": "$2b$10$Tyds0YW0/2v50pXErovh/.kB/vSrzW1dWHMaUr93/0gBoe6PK/w.O",
+    "bio": "Soy maratonista, intentando correr 42km en menos de 2:00:00",
+    "nombre": "daniel macario",
+    "fecha_creado": { "$date": "2019-08-08T11:54:45.488Z" },
+    "fecha_actualizado": { "$date": "2019-08-08T11:54:45.488Z" },
+    "__v": 0
+  },
+  {
+    "_id": { "$oid": "5d4c0dfcc4c868c50a564e76" },
+    "imagen": null,
+    "email": "diego@clontagram.com",
+    "username": "diegorilla",
+    "password": "$2b$10$Hrsz9rhyhmvVIeNzeELk3ukov6l.XRV7DaA1FeP831.cVoFSbX3Sy",
+    "bio": "Todo sobre computación gráfica y superación personal",
+    "nombre": "diego macario",
+    "fecha_creado": { "$date": "2019-08-08T11:56:44.242Z" },
+    "fecha_actualizado": { "$date": "2019-08-08T11:57:56.574Z" },
+    "__v": 0
+  }
+]

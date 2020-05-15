@@ -1,0 +1,66 @@
+[
+  {
+    "_id": { "$oid": "5d4c0c54c4c868c50a564e60" },
+    "usuario": { "$oid": "5d4c0c54c4c868c50a564e5f" },
+    "seguidor": { "$oid": "5d4c0c54c4c868c50a564e5f" },
+    "fecha_creado": { "$date": "2019-08-08T11:49:40.882Z" },
+    "fecha_actualizado": { "$date": "2019-08-08T11:49:40.882Z" },
+    "__v": 0
+  },
+  {
+    "_id": { "$oid": "5d4c0cd5c4c868c50a564e67" },
+    "usuario": { "$oid": "5d4c0cd5c4c868c50a564e66" },
+    "seguidor": { "$oid": "5d4c0cd5c4c868c50a564e66" },
+    "fecha_creado": { "$date": "2019-08-08T11:51:49.511Z" },
+    "fecha_actualizado": { "$date": "2019-08-08T11:51:49.511Z" },
+    "__v": 0
+  },
+  {
+    "_id": { "$oid": "5d4c0d22c4c868c50a564e69" },
+    "usuario": { "$oid": "5d4c0cd5c4c868c50a564e66" },
+    "seguidor": { "$oid": "5d4c0c54c4c868c50a564e5f" },
+    "fecha_creado": { "$date": "2019-08-08T11:53:06.086Z" },
+    "fecha_actualizado": { "$date": "2019-08-08T11:53:06.086Z" },
+    "__v": 0
+  },
+  {
+    "_id": { "$oid": "5d4c0d26c4c868c50a564e6a" },
+    "usuario": { "$oid": "5d4c0c54c4c868c50a564e5f" },
+    "seguidor": { "$oid": "5d4c0cd5c4c868c50a564e66" },
+    "fecha_creado": { "$date": "2019-08-08T11:53:10.888Z" },
+    "fecha_actualizado": { "$date": "2019-08-08T11:53:10.888Z" },
+    "__v": 0
+  },
+  {
+    "_id": { "$oid": "5d4c0d85c4c868c50a564e6f" },
+    "usuario": { "$oid": "5d4c0d85c4c868c50a564e6e" },
+    "seguidor": { "$oid": "5d4c0d85c4c868c50a564e6e" },
+    "fecha_creado": { "$date": "2019-08-08T11:54:45.490Z" },
+    "fecha_actualizado": { "$date": "2019-08-08T11:54:45.490Z" },
+    "__v": 0
+  },
+  {
+    "_id": { "$oid": "5d4c0dabc4c868c50a564e72" },
+    "usuario": { "$oid": "5d4c0d85c4c868c50a564e6e" },
+    "seguidor": { "$oid": "5d4c0cd5c4c868c50a564e66" },
+    "fecha_creado": { "$date": "2019-08-08T11:55:23.505Z" },
+    "fecha_actualizado": { "$date": "2019-08-08T11:55:23.505Z" },
+    "__v": 0
+  },
+  {
+    "_id": { "$oid": "5d4c0dbdc4c868c50a564e73" },
+    "usuario": { "$oid": "5d4c0d85c4c868c50a564e6e" },
+    "seguidor": { "$oid": "5d4c0c54c4c868c50a564e5f" },
+    "fecha_creado": { "$date": "2019-08-08T11:55:41.038Z" },
+    "fecha_actualizado": { "$date": "2019-08-08T11:55:41.038Z" },
+    "__v": 0
+  },
+  {
+    "_id": { "$oid": "5d4c0dfcc4c868c50a564e77" },
+    "usuario": { "$oid": "5d4c0dfcc4c868c50a564e76" },
+    "seguidor": { "$oid": "5d4c0dfcc4c868c50a564e76" },
+    "fecha_creado": { "$date": "2019-08-08T11:56:44.243Z" },
+    "fecha_actualizado": { "$date": "2019-08-08T11:56:44.243Z" },
+    "__v": 0
+  }
+]

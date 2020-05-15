@@ -1,0 +1,101 @@
+[
+  {
+    "_id": { "$oid": "5d4c0c76c4c868c50a564e61" },
+    "numLikes": 1,
+    "numComentarios": 0,
+    "caption": "El almuerzo de hoy!",
+    "url": "/imagenes/182266b4-058e-4b71-99c9-a3c4a9114969.png",
+    "usuario": { "$oid": "5d4c0c54c4c868c50a564e5f" },
+    "fecha_creado": { "$date": "2019-08-08T11:50:14.920Z" },
+    "fecha_actualizado": { "$date": "2019-08-08T11:51:00.320Z" },
+    "__v": 0
+  },
+  {
+    "_id": { "$oid": "5d4c0c87c4c868c50a564e62" },
+    "numLikes": 1,
+    "numComentarios": 1,
+    "caption": "Nos vamos al agua!",
+    "url": "/imagenes/7e1ae07a-1252-4e3a-92ce-c56f8ae0e92f.png",
+    "usuario": { "$oid": "5d4c0c54c4c868c50a564e5f" },
+    "fecha_creado": { "$date": "2019-08-08T11:50:31.974Z" },
+    "fecha_actualizado": { "$date": "2019-08-08T11:59:15.737Z" },
+    "__v": 0
+  },
+  {
+    "_id": { "$oid": "5d4c0c9bc4c868c50a564e63" },
+    "numLikes": 2,
+    "numComentarios": 2,
+    "caption": "Rompiendo rutinas...",
+    "url": "/imagenes/9a654a64-1e92-49b3-b828-282d3920aecf.png",
+    "usuario": { "$oid": "5d4c0c54c4c868c50a564e5f" },
+    "fecha_creado": { "$date": "2019-08-08T11:50:51.959Z" },
+    "fecha_actualizado": { "$date": "2019-08-08T11:58:36.051Z" },
+    "__v": 0
+  },
+  {
+    "_id": { "$oid": "5d4c0cf3c4c868c50a564e68" },
+    "numLikes": 0,
+    "numComentarios": 0,
+    "caption": "Mi cafesito mañanero!",
+    "url": "/imagenes/08e72a30-b73b-4cac-a5cd-b8dea734ed55.png",
+    "usuario": { "$oid": "5d4c0cd5c4c868c50a564e66" },
+    "fecha_creado": { "$date": "2019-08-08T11:52:19.694Z" },
+    "fecha_actualizado": { "$date": "2019-08-08T11:52:19.694Z" },
+    "__v": 0
+  },
+  {
+    "_id": { "$oid": "5d4c0d5dc4c868c50a564e6d" },
+    "numLikes": 2,
+    "numComentarios": 1,
+    "caption": "Empezando el verano bien!",
+    "url": "/imagenes/a1b11f91-ec54-4331-be91-0e754ad46d2d.png",
+    "usuario": { "$oid": "5d4c0cd5c4c868c50a564e66" },
+    "fecha_creado": { "$date": "2019-08-08T11:54:05.413Z" },
+    "fecha_actualizado": { "$date": "2019-08-08T11:58:46.410Z" },
+    "__v": 0
+  },
+  {
+    "_id": { "$oid": "5d4c0da1c4c868c50a564e70" },
+    "numLikes": 1,
+    "numComentarios": 0,
+    "caption": "Mi nuevo perro: Squeaky",
+    "url": "/imagenes/1e93419e-6809-407c-9f61-0764bd17109a.png",
+    "usuario": { "$oid": "5d4c0d85c4c868c50a564e6e" },
+    "fecha_creado": { "$date": "2019-08-08T11:55:13.357Z" },
+    "fecha_actualizado": { "$date": "2019-08-08T11:55:15.343Z" },
+    "__v": 0
+  },
+  {
+    "_id": { "$oid": "5d4c0dd5c4c868c50a564e74" },
+    "numLikes": 1,
+    "numComentarios": 0,
+    "caption": "Nuevo caballo. Ready para un roadtrip.",
+    "url": "/imagenes/ef78f5e9-5ce9-45c0-9a07-a20635e17fac.png",
+    "usuario": { "$oid": "5d4c0d85c4c868c50a564e6e" },
+    "fecha_creado": { "$date": "2019-08-08T11:56:05.903Z" },
+    "fecha_actualizado": { "$date": "2019-08-08T11:56:12.422Z" },
+    "__v": 0
+  },
+  {
+    "_id": { "$oid": "5d4c0e0fc4c868c50a564e78" },
+    "numLikes": 0,
+    "numComentarios": 0,
+    "caption": "Cosas del desierto..",
+    "url": "/imagenes/88d7c33b-3c80-4b00-8694-2d4d5d2057c1.png",
+    "usuario": { "$oid": "5d4c0dfcc4c868c50a564e76" },
+    "fecha_creado": { "$date": "2019-08-08T11:57:03.809Z" },
+    "fecha_actualizado": { "$date": "2019-08-08T11:57:03.809Z" },
+    "__v": 0
+  },
+  {
+    "_id": { "$oid": "5d4c0e36c4c868c50a564e79" },
+    "numLikes": 1,
+    "numComentarios": 0,
+    "caption": "Un brunch nunca falla.",
+    "url": "/imagenes/09ca1290-4cbd-4f46-a6e4-4069d3716f9d.png",
+    "usuario": { "$oid": "5d4c0dfcc4c868c50a564e76" },
+    "fecha_creado": { "$date": "2019-08-08T11:57:42.834Z" },
+    "fecha_actualizado": { "$date": "2019-08-08T11:58:40.864Z" },
+    "__v": 0
+  }
+]
