@@ -1,9 +1,9 @@
 {
-  "name": "Geekstagramdb",
+  "name": "geekstagramdb",
   "version": "1.0.0",
   "main": "index.js",
   "private": true,
-  "author": "Ricardo y Daniel Macario",
+  "author": "Rafa",
   "license": "ISC",
   "scripts": {
     "dev": "nodemon index.js",

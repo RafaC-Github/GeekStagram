@@ -387,7 +387,7 @@ body {
   padding-bottom: 6rem;
 }
 .Main--center {
-  -webkit-justify-content: center;
+  display: flex;
   justify-content: center;
 }
 .Signup {
@@ -397,7 +397,7 @@ body {
   align-items: center;
 }
 .Signup__img {
-  height: 70vh;
+  height: 50vh;
   min-width: 450px;
   object-fit: contain;
   display: none;
@@ -925,7 +925,10 @@ body {
 .Nav__link {
   text-decoration: none;
   color: #22292f;
+  
+  
 }
+
 .Nav__link-push {
   margin-left: auto;
 }

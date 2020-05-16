@@ -12,13 +12,13 @@ const logger = require('./utils/logger');
 const authJWT = require('./api/libs/auth');
 const config = require('./config');
 const errorHandler = require('./api/libs/errorHandler');
-
 const passport = require('passport');
 passport.use(authJWT);
 
-// MongoDB -> NoSQL -> No hay tablas, sino colecciones de documentos
+
 mongoose.connect(process.env.MONGODB_URI, {
-  // Estos settings apagan warnings de mongoose
+
+  //Quitar warnings de mongoose
   useNewUrlParser: true,
   useFindAndModify: false,
   useCreateIndex: true
@@ -39,10 +39,16 @@ app.use(
   })
 );
 
-// Servir archivos estáticos que están en la carpeta public/
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+  next();
+});
+
 app.use(express.static('public'));
 
-// Servir las imagenes que vienen de seedear la data
+
 app.use('/imagenes', express.static('public/imagenes_seed'));
 
 app.use(passport.initialize());
@@ -53,6 +59,7 @@ app.use('/api/amistades', amistadesRouter);
 
 app.use(errorHandler.procesarErroresDeDB);
 app.use(errorHandler.procesarErroresDeTamañoDeBody);
+
 if (config.ambiente === 'prod') {
   app.use(errorHandler.erroresEnProducción);
 } else {

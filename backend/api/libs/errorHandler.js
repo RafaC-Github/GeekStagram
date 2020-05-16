@@ -7,6 +7,7 @@ exports.procesarErrores = (fn) => {
   }
 }
 
+
 exports.procesarErroresDeDB = (err, req, res, next) => {
   if (err instanceof mongoose.Error || err.name === 'MongoError') {
     log.error('Ocurrió un error relacionado a mongoose.', err)

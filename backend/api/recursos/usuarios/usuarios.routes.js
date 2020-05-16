@@ -47,9 +47,7 @@ usuariosRouter.get(
       .obtenerUsuariosExplore(req.user.id)
       .then(usuarios => res.json(usuarios));
 
-    // return usuarioController.obtenerUsuarios().then(usuarios => {
-    //   res.json(usuarios);
-    // });
+    
   })
 );
 
@@ -113,6 +111,7 @@ usuariosRouter.post(
             return nuevoUsario;
           })
           .then(nuevoUsario => {
+            
             // El usuario creado se sigue a si mismo
             amistadesController.crearAmistad(nuevoUsario._id, nuevoUsario._id);
           });

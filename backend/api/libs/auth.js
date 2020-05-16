@@ -4,8 +4,6 @@ const log = require('../../utils/logger');
 const config = require('../../config');
 const usuarioController = require('../recursos/usuarios/usuarios.controller');
 
-// Token debe ser especificado mediante el header "Authorization". Ejemplo:
-// Authorization: bearer xxxx.yyyy.zzzz
 let jwtOptions = {
   secretOrKey: config.jwt.secreto,
   jwtFromRequest: passportJWT.ExtractJwt.fromAuthHeaderAsBearerToken()
