@@ -6,6 +6,7 @@ import RecursoNoExiste from '../Components/RecursoNoExiste'
 import Axios from 'axios'
 import stringToColor from 'string-to-color'
 import toggleSiguiendo from '../Helpers/amistad-helpers'
+import useEsMobil from '../Hooks/useEsMobil'
 
 export default function Perfil({ mostrarError, usuario, match, logout }) {
     const username = match.params.username;
@@ -14,7 +15,8 @@ export default function Perfil({ mostrarError, usuario, match, logout }) {
     const [posts, setPosts] = useState([]);
     const [perfilNoExiste, setPerfilNoExiste] = useState(false);
     const [subiendoImagen, setSubiendoImagen] = useState(false);
-    const [enviandoAmistad, setEnviandoAmistad]=useState(false);
+    const [enviandoAmistad, setEnviandoAmistad] = useState(false);
+    const esMobil = useEsMobil();
 
     useEffect(() => {
         async function cargarPostYUsuario() {
@@ -63,16 +65,16 @@ export default function Perfil({ mostrarError, usuario, match, logout }) {
         }
     }
 
-    async function onToggleSiguiendo(){
-        if(enviandoAmistad){
+    async function onToggleSiguiendo() {
+        if (enviandoAmistad) {
             return;
         }
-        try{
+        try {
             setEnviandoAmistad(true);
             const usuarioActualizado = await toggleSiguiendo(usuarioDueñoDelPerfil);
             setUsuarioDueñoDelPerfil(usuarioActualizado);
             setEnviandoAmistad(false);
-        }catch(error){
+        } catch (error) {
             mostrarError('No se pudo realizar la operación')
             setEnviandoAmistad(false);
             console.log(error);
@@ -113,19 +115,41 @@ export default function Perfil({ mostrarError, usuario, match, logout }) {
                 <div className="Perfil__bio-container">
                     <div className="Perfil__bio-heading">
                         <h2 className="capitalize">{usuarioDueñoDelPerfil.username}</h2>
-                        {!esElPerfilDeLaPersonaLogin() 
-                        && 
-                        (<BotonSeguir 
-                        siguiendo={usuarioDueñoDelPerfil.siguiendo}
-                        toggleSiguiendo={onToggleSiguiendo}
-                        ></BotonSeguir>
-                        )}
+                        {!esElPerfilDeLaPersonaLogin()
+                            &&
+                            (<BotonSeguir
+                                siguiendo={usuarioDueñoDelPerfil.siguiendo}
+                                toggleSiguiendo={onToggleSiguiendo}
+                            ></BotonSeguir>
+                            )}
 
                         {esElPerfilDeLaPersonaLogin() && <BotonLogout logout={logout}></BotonLogout>}
                     </div>
+                    {!esMobil &&  <DescripcionPerfil usuarioDueñoDelPerfil={usuarioDueñoDelPerfil}/>}
+                   
                 </div>
-            </div>
+                </div>
+                    {esMobil &&  (<DescripcionPerfil usuarioDueñoDelPerfil={usuarioDueñoDelPerfil}/>)}
+                   
+                <div className="Perfil__separador"></div>
+                {posts.length >0 ? <Grid posts={posts}></Grid> : <NoHaPosteadoFotos/>}
+            
         </Main>
+    )
+
+}
+function DescripcionPerfil({ usuarioDueñoDelPerfil }) {
+    return (
+        <div className="Perfil__descripcion">
+            <h2 className="Perfil__nombre">{usuarioDueñoDelPerfil.nombre}</h2>
+            <p>{usuarioDueñoDelPerfil.bio}</p>
+            <p className="Perfil__estadisticas">
+                <b>{usuarioDueñoDelPerfil.numSiguiendo}</b> following
+                <span className="ml-4">
+                    <b>{usuarioDueñoDelPerfil.numSeguidores}</b> followers
+                </span>
+            </p>
+        </div>
     )
 
 }
@@ -179,6 +203,10 @@ function BotonLogout({ logout }) {
     return (
         <button className="Perfil__boton-logout" onClick={logout}>Desconectarse</button>
     )
+}
+
+function NoHaPosteadoFotos(){
+    return <p className="text-center">No hay nada subido</p>
 }
 
 
