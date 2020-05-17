@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import {Link} from 'react-router-dom'
 import { FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import { faCamera} from '@fortawesome/free-solid-svg-icons'
+import { faCompass} from '@fortawesome/free-regular-svg-icons'
 
 export default function Nav({usuario}){
     return(
@@ -22,6 +23,11 @@ function LoginRoutes(){
             <li className="Nav__link-push">
                 <Link className="Nav__link" to="/upload">
                     <FontAwesomeIcon icon={faCamera}/>
+                </Link>
+            </li>
+            <li className="Nav__link-margin-left">
+                <Link className="Nav__link" to="/explore">
+                    <FontAwesomeIcon icon={faCompass}/>
                 </Link>
             </li>
         </Fragment>

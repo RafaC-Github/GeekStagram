@@ -11,6 +11,7 @@ import Error from './Components/Error'
 import Upload from './Views/Upload'
 import Feed from './Views/Feed'
 import Post from './Views/Post'
+import Explore from './Views/Explore'
 
 
 initAxiosInterceptors(); //cargar token si hay alguno para reconocer usuario(viene de auth-helper)
@@ -21,7 +22,7 @@ export default function App() {
 
   const [cargandoUsuario, setCargandoUsuario] = useState(true);
 
-  const [error, setError]= useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
 
@@ -66,11 +67,11 @@ export default function App() {
   }
 
 
-  function mostrarError(mensaje){
+  function mostrarError(mensaje) {
     setError(mensaje);
   }
 
-  function esconderError(){
+  function esconderError() {
     setError(null)
   }
 
@@ -79,41 +80,45 @@ export default function App() {
     return (
       <Main center>
         <Loading />
-      </Main>  
+      </Main>
     )
   }
 
 
   return (
     <Router>
-      <Nav usuario={usuario}/>
-      <Error mensaje={error} esconderError={esconderError}/>
-      {usuario 
-      ? (<LoginRoutes mostrarError={mostrarError} usuario={usuario}/>) 
-      : (<LogoutRoutes login={login} signup={signup} mostrarError={mostrarError}/>)}
+      <Nav usuario={usuario} />
+      <Error mensaje={error} esconderError={esconderError} />
+      {usuario
+        ? (<LoginRoutes mostrarError={mostrarError} usuario={usuario} />)
+        : (<LogoutRoutes login={login} signup={signup} mostrarError={mostrarError} />)}
     </Router>
   );
 }
 
-function LoginRoutes({mostrarError, usuario}) {
+function LoginRoutes({ mostrarError, usuario }) {
   return (
     <Switch>
       <Route
         path="/upload"
-        render={props => <Upload {...props}  mostrarError={mostrarError} />}
+        render={props => <Upload {...props} mostrarError={mostrarError} />}
       />
-        <Route
+      <Route
         path="/post/:id"
-        render={props => <Post {...props}  mostrarError={mostrarError}  usuario={usuario}/>}
+        render={props => <Post {...props} mostrarError={mostrarError} usuario={usuario} />}
       />
 
       <Route
+        path="/explore"
+        render={props => <Explore {...props} mostrarError={mostrarError}  />}
+      />
+      <Route
         path="/"
-        render={props => (<Feed {...props}  mostrarError={mostrarError} usuario={usuario} />)}
+        render={props => (<Feed {...props} mostrarError={mostrarError} usuario={usuario} />)}
 
         default
       />
-      
+
     </Switch>
   )
 
