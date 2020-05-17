@@ -37,7 +37,7 @@ let validarUsuario = (req, res, next) => {
     res
       .status(400)
       .send(
-        'Información del usuario no cumple los requisitos. El nombre del usuario debe ser alafanúmerico y tener entre 3 y 30 carácteres. La contraseña debe tener entre 6 y 200 carácteres. Asegúrate de que el email sea válido.'
+        'Información del usuario no cumple los requisitos. El nombre del usuario debe ser alafanúmerico y tener entre 3 y 30 carácteres. La contraseña debe tener entre 6 y 200 carácteres.'
       );
   }
 };
@@ -58,7 +58,7 @@ let validarPedidoDeLogin = (req, res, next) => {
     res
       .status(400)
       .send(
-        'Login falló. Debes especificar el email y contraseña del usuario. Ambos deben ser strings.'
+        'Escribe el email y contraseña.'
       );
   }
 };

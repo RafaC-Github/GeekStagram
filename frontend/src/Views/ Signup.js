@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import Main from '../Components/Main'
 import virus from '../Images/virus.png'
+import {Link} from 'react-router-dom'
 
-export default function Signup({signup}) {
+export default function Signup({signup, mostrarError}) {
     const [usuario, setUsuario] = useState({
         email: '',
         username: '',
@@ -25,10 +26,11 @@ export default function Signup({signup}) {
         e.preventDefault();
 
         try{
-            signup(usuario)
+           await signup(usuario)
             
 
         }catch(error){
+            mostrarError(error.response.date);
             console.log(error);
 
         }
@@ -62,7 +64,7 @@ export default function Signup({signup}) {
                             <button className="Form__submit" type="submit">Registrarse</button>
                         </form>
                         
-                        <p className="FormCointainer_info">¿Ya tienes cuenta?<a href="/login"> Login</a></p>
+                        <p className="FormCointainer_info">¿Ya tienes cuenta?<Link to="/login"> Login</Link></p>
                    
 
 

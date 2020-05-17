@@ -11,7 +11,7 @@ exports.procesarErrores = (fn) => {
 exports.procesarErroresDeDB = (err, req, res, next) => {
   if (err instanceof mongoose.Error || err.name === 'MongoError') {
     log.error('Ocurrió un error relacionado a mongoose.', err)
-    err.message = "Error relacionado a la base de datos ocurrió inesperadamente. Para ayuda contacte a daniel@gmail.com"
+    err.message = "Error relacionado a la base de datos."
     err.status = 500
   }
   next(err)

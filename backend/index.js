@@ -23,6 +23,7 @@ mongoose.connect(process.env.MONGODB_URI, {
   useFindAndModify: false,
   useCreateIndex: true
 });
+
 mongoose.connection.on('error', () => {
   logger.error('Falló la conexión a mongodb');
   process.exit(1);
@@ -30,7 +31,7 @@ mongoose.connection.on('error', () => {
 
 const app = express();
 app.use(bodyParser.json());
-app.use(bodyParser.raw({ type: 'image/*', limit: '8mb' }));
+app.use(bodyParser.raw({ type: 'image/*', limit: '16mb' }));
 app.use(
   morgan('short', {
     stream: {

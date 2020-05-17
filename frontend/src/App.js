@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Nav from './Components/Nav.js'
 import Signup from './Views/ Signup'
 import Login from './Views/Login'
@@ -6,34 +7,38 @@ import Axios from 'axios'
 import { setToken, deleteToken, getToken, initAxiosInterceptors } from './Helpers/auth-helpers'
 import Loading from './Components/Loading'
 import Main from './Components/Main.js';
- 
+import Error from './Components/Error'
 
-initAxiosInterceptors(); //cargar token si hay alguno para reconocer usuario
+
+initAxiosInterceptors(); //cargar token si hay alguno para reconocer usuario(viene de auth-helper)
 
 
 export default function App() {
   const [usuario, setUsuario] = useState(null) // es null porque no sabemos si hay usuario autentificado
- 
+
   const [cargandoUsuario, setCargandoUsuario] = useState(true);
-  useEffect(()=>{
 
-    async function cargarUsuario(){
+  const [error, setError]= useState(null);
 
-    if(!getToken()){
-      setCargandoUsuario(false);
-      return;
+  useEffect(() => {
+
+    async function cargarUsuario() {
+
+      if (!getToken()) {
+        setCargandoUsuario(false);
+        return;
+      }
+      try {
+        const { data: usuario } = await Axios.get('http://localhost:3001/api/usuarios/whoami');
+        setUsuario(usuario);
+        setCargandoUsuario(false);
+      } catch (error) {
+        console.log(error);
+
+
+      }
     }
-    try{
-      const { data:usuario}= await Axios.get('http://localhost:3001/api/usuarios/whoami');
-      setUsuario(usuario);
-      setCargandoUsuario(false);
-    }catch(error){
-      console.log(error);
-    
-
-    }
-  }
-  cargarUsuario();
+    cargarUsuario();
 
   }, []);
 
@@ -51,27 +56,65 @@ export default function App() {
     setToken(data.token);
   }
 
-  function logout(){
+  function logout() {
     setUsuario(null);
     deleteToken();
 
   }
 
-  if(cargandoUsuario){
+
+  function mostrarError(mensaje){
+    setError(mensaje);
+  }
+
+  function esconderError(){
+    setError(null)
+  }
+
+
+  if (cargandoUsuario) {
     return (
       <Main center>
-        <Loading/>
-      </Main>
+        <Loading />
+      </Main>  
     )
   }
 
 
   return (
-    <div className="ContenedorTemporal">
+    <Router>
       <Nav />
-      {/*    <Signup signup={signup}/>*/}
-      <Login login={login} />
-      <div>{JSON.stringify(usuario)}</div>
-    </div>
+      <Error mensaje={error} esconderError={esconderError}/>
+      {usuario ? (<LoginRoutes />) : (<LogoutRoutes login={login} signup={signup} mostrarError={mostrarError}/>)}
+    </Router>
   );
+}
+
+function LoginRoutes() {
+  return (
+    <Switch>
+      <Route
+        path="/"
+        component={() => <Main center><h1>Soy el feed</h1></Main>}
+        default
+      />
+    </Switch>
+  )
+
+}
+
+function LogoutRoutes({ login, signup, mostrarError }) {
+  return (
+    <Switch>
+      <Route
+        path="/login/"
+        render={props => <Login{...props} login={login} mostrarError={mostrarError} />}
+      />
+
+      <Route
+        render={props => <Signup{...props} signup={signup} mostrarError={mostrarError} />}
+        default
+      />
+    </Switch>
+  )
 }
