@@ -12,6 +12,7 @@ import Upload from './Views/Upload'
 import Feed from './Views/Feed'
 import Post from './Views/Post'
 import Explore from './Views/Explore'
+import Perfil from './Views/Perfil';
 
 
 initAxiosInterceptors(); //cargar token si hay alguno para reconocer usuario(viene de auth-helper)
@@ -106,6 +107,11 @@ function LoginRoutes({ mostrarError, usuario }) {
       <Route
         path="/post/:id"
         render={props => <Post {...props} mostrarError={mostrarError} usuario={usuario} />}
+      />
+
+      <Route
+        path="/perfil/:username"
+        render={props => <Perfil {...props} mostrarError={mostrarError} usuario={usuario} />}
       />
 
       <Route
