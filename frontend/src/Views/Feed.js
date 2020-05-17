@@ -7,22 +7,28 @@ import Post from '../Components/Post'
 
 async function cargarPosts(fechaDelUltimoPost) {
     const query = fechaDelUltimoPost ? `?fecha=${fechaDelUltimoPost}` : '';
-    const { data: nuevosPosts } = await Axios.get(`/api/posts/feed${query}`)
-
+    const { data: nuevosPosts } = await Axios.get(`http://localhost:3001/api/posts/feed${query}`);
+    
     return nuevosPosts;
 }
 
+const NUMERO_DE_POSTS_POR_PANTALLA = 3;
 
-export default function Feed({ mostrarError }) {
+export default function Feed({ mostrarError, usuario }) {
     const [posts, setPosts] = useState([]);
-    const [cargandoPostsIniciales, setCargandoPostsIniciales] = useState(true);
+    const [cargandoPostIniciales, setCargandoPostIniciales] = useState(true);
+    const[cargandoMasPosts, setCargandoMasPosts ]= useState(false);
+    const [todosLosPostsCargados, setTodosLosPostsCargados]=  useState(false);
+
+
     useEffect(() => {
         async function cargarPostsIniciales() {
             try {
                 const nuevosPosts = await cargarPosts();
                 setPosts(nuevosPosts);
                 console.log(nuevosPosts);
-                setCargandoPostsIniciales(false);
+                setCargandoPostIniciales(false);
+                revisarSiHayMasPosts(nuevosPosts);
             } catch (error) {
                 mostrarError('No se puede cargar el feed')
                 console.log(error);
@@ -31,7 +37,49 @@ export default function Feed({ mostrarError }) {
         cargarPostsIniciales()
     }, [])
 
-    if (cargandoPostsIniciales) {
+    function actualizarPost(postOriginal, postActualizado){
+        setPosts(posts=>{
+            const postActualizados = posts.map(post=>{
+                if(post !== postOriginal){
+                    return post;
+                }
+                return postActualizado;
+            })
+            return postActualizados;
+        })
+    }
+
+    async function cargarMasPosts(){
+
+        if(cargandoMasPosts){
+            return;
+
+        }
+        try{
+
+            setCargandoMasPosts(true);
+            const fechaDelUltimoPost= posts[posts.length -1].fecha_creado;
+            const nuevosPosts = await cargarPosts(fechaDelUltimoPost);
+            setPosts(viejosPosts =>[...viejosPosts, ...nuevosPosts]);
+            setCargandoMasPosts(false);
+            revisarSiHayMasPosts(nuevosPosts);
+
+        }catch(error){
+            mostrarError('No se puede cargar el resto de las imágenes')
+            setCargandoMasPosts(false);
+
+        }
+    }
+
+    function revisarSiHayMasPosts(nuevosPosts){
+            if(nuevosPosts.length < NUMERO_DE_POSTS_POR_PANTALLA){
+                setTodosLosPostsCargados(true);
+
+            }
+
+    }
+
+    if (cargandoPostIniciales) {
         return (
             <Main center>
                 <Loading />
@@ -40,7 +88,7 @@ export default function Feed({ mostrarError }) {
 
     }
 
-    if(!cargandoPostsIniciales && posts.lenght === 0){
+    if(!cargandoPostIniciales && posts.lenght === 0){
         return (
         <Main center>
             <NoSiguesANadie/>
@@ -53,8 +101,9 @@ export default function Feed({ mostrarError }) {
         <Main center>
             <div className="Feed">
                 {
-                    posts.map(post =>(<Post key={post._id} post={post}/>))
+                    posts.map(post =>(<Post key={post._id} post={post} actualizarPost={actualizarPost} mostrarError={mostrarError} usuario={usuario}/>))
                 }
+                <CargarMasPosts onClick={cargarMasPosts} todosLosPostCargados={todosLosPostsCargados}/>
             </div>
         </Main>
     );
@@ -72,4 +121,16 @@ function NoSiguesANadie() {
         </div>
         </div>
         )
+}
+function CargarMasPosts({ onClick, todosLosPostCargados }){
+    if(todosLosPostCargados){
+        return <div className="Feed__no-hay-mas-posts">No hay mas imágenes</div>
+
+    }
+    return (
+        <button className="Feed__cargar-mas" onClick={onClick}>
+            Ver más
+        </button>
+    )
+
 }

@@ -23,7 +23,7 @@ export default function Upload({history, mostrarError}) {
                     'Content-Type': file.type
                 }
             };
-            const {data}= await Axios.post('/api/posts/upload', file, config);
+            const {data}= await Axios.post('http://localhost:3001/api/posts/upload', file, config);
             console.log(data);
             setImagenUrl(data.url);
             setSubiendoImagen(false);
@@ -57,7 +57,7 @@ export default function Upload({history, mostrarError}) {
                     caption,
                     url:imagenUrl
                 };
-                await Axios.post('/api/posts', body);
+                await Axios.post('http://localhost:3001/api/posts', body);
                 setEnviandoPost(false);
                 history.push('/')
 

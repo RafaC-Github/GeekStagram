@@ -31,7 +31,7 @@ export default function App() {
         return;
       }
       try {
-        const { data: usuario } = await Axios.get('/api/usuarios/whoami');
+        const { data: usuario } = await Axios.get('http://localhost:3001/api/usuarios/whoami');
         setUsuario(usuario);
         setCargandoUsuario(false);
       } catch (error) {
@@ -45,14 +45,14 @@ export default function App() {
   }, []);
 
   async function login(email, password) {
-    const { data } = await Axios.post('/api/usuarios/login', { email, password });
+    const { data } = await Axios.post('http://localhost:3001/api/usuarios/login', { email, password });
 
     setUsuario(data.usuario);
     setToken(data.token);
   }
 
   async function signup(usuario) {
-    const { data } = await Axios.post('/api/usuarios/signup', usuario);
+    const { data } = await Axios.post('http://localhost:3001/api/usuarios/signup', usuario);
 
     setUsuario(data.usuario);
     setToken(data.token);
@@ -87,12 +87,14 @@ export default function App() {
     <Router>
       <Nav usuario={usuario}/>
       <Error mensaje={error} esconderError={esconderError}/>
-      {usuario ? (<LoginRoutes mostrarError={mostrarError} />) : (<LogoutRoutes login={login} signup={signup} mostrarError={mostrarError}/>)}
+      {usuario 
+      ? (<LoginRoutes mostrarError={mostrarError} usuario={usuario}/>) 
+      : (<LogoutRoutes login={login} signup={signup} mostrarError={mostrarError}/>)}
     </Router>
   );
 }
 
-function LoginRoutes({mostrarError}) {
+function LoginRoutes({mostrarError, usuario}) {
   return (
     <Switch>
       <Route
@@ -102,7 +104,7 @@ function LoginRoutes({mostrarError}) {
 
       <Route
         path="/"
-        render={props => <Feed {...props}  mostrarError={mostrarError} />}
+        render={props => <Feed {...props}  mostrarError={mostrarError} usuario={usuario} />}
 
         default
       />
