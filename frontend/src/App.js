@@ -10,6 +10,7 @@ import Main from './Components/Main.js';
 import Error from './Components/Error'
 import Upload from './Views/Upload'
 import Feed from './Views/Feed'
+import Post from './Views/Post'
 
 
 initAxiosInterceptors(); //cargar token si hay alguno para reconocer usuario(viene de auth-helper)
@@ -98,13 +99,17 @@ function LoginRoutes({mostrarError, usuario}) {
   return (
     <Switch>
       <Route
-        path="/upload/"
+        path="/upload"
         render={props => <Upload {...props}  mostrarError={mostrarError} />}
+      />
+        <Route
+        path="/post/:id"
+        render={props => <Post {...props}  mostrarError={mostrarError}  usuario={usuario}/>}
       />
 
       <Route
         path="/"
-        render={props => <Feed {...props}  mostrarError={mostrarError} usuario={usuario} />}
+        render={props => (<Feed {...props}  mostrarError={mostrarError} usuario={usuario} />)}
 
         default
       />
