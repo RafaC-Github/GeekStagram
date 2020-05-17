@@ -17,7 +17,7 @@ const collections = seeder.readCollectionsFromPath(
     await seeder.import(collections);
     console.log('Data importada a la base de datos "Geekstagram" exitosamente');
   } catch (err) {
-    console.log('Hubo un error llenando la base de datos:', err);
+    console.log('Hubo un error completando la base de datos:', err);
   }
 })();
 
