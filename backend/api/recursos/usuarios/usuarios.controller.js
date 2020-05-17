@@ -57,7 +57,7 @@ async function obtenerUsuarioConQuery(query, usuarioLoggeadoId) {
     .populate('numSiguiendo');
 
   // Esto se necesita para saber si el usuario que esta loggeado sigue al usuario que
-  // se esta pidiendo por el API. No me gusta que sea condicional.
+  // se esta pidiendo por el API.
   if (usuarioLoggeadoId && usuario) {
     const sigueAUsuarioLoggeado = await obtenerSiUsuarioLoggeadoSigueAUsuario(
       usuario._id,

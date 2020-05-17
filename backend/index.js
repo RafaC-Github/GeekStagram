@@ -31,7 +31,7 @@ mongoose.connection.on('error', () => {
 
 const app = express();
 app.use(bodyParser.json());
-app.use(bodyParser.raw({ type: 'image/*', limit: '16mb' }));
+app.use(bodyParser.raw({ type: 'image/*', limit: '8mb' }));
 app.use(
   morgan('short', {
     stream: {
@@ -40,12 +40,6 @@ app.use(
   })
 );
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-  next();
-});
 
 app.use(express.static('public'));
 

@@ -8,6 +8,8 @@ import { setToken, deleteToken, getToken, initAxiosInterceptors } from './Helper
 import Loading from './Components/Loading'
 import Main from './Components/Main.js';
 import Error from './Components/Error'
+import Upload from './Views/Upload'
+import Feed from './Views/Feed'
 
 
 initAxiosInterceptors(); //cargar token si hay alguno para reconocer usuario(viene de auth-helper)
@@ -29,7 +31,7 @@ export default function App() {
         return;
       }
       try {
-        const { data: usuario } = await Axios.get('http://localhost:3001/api/usuarios/whoami');
+        const { data: usuario } = await Axios.get('/api/usuarios/whoami');
         setUsuario(usuario);
         setCargandoUsuario(false);
       } catch (error) {
@@ -43,14 +45,14 @@ export default function App() {
   }, []);
 
   async function login(email, password) {
-    const { data } = await Axios.post('http://localhost:3001/api/usuarios/login', { email, password });
+    const { data } = await Axios.post('/api/usuarios/login', { email, password });
 
     setUsuario(data.usuario);
     setToken(data.token);
   }
 
   async function signup(usuario) {
-    const { data } = await Axios.post('http://localhost:3001/api/usuarios/signup', usuario);
+    const { data } = await Axios.post('/api/usuarios/signup', usuario);
 
     setUsuario(data.usuario);
     setToken(data.token);
@@ -83,21 +85,28 @@ export default function App() {
 
   return (
     <Router>
-      <Nav />
+      <Nav usuario={usuario}/>
       <Error mensaje={error} esconderError={esconderError}/>
-      {usuario ? (<LoginRoutes />) : (<LogoutRoutes login={login} signup={signup} mostrarError={mostrarError}/>)}
+      {usuario ? (<LoginRoutes mostrarError={mostrarError} />) : (<LogoutRoutes login={login} signup={signup} mostrarError={mostrarError}/>)}
     </Router>
   );
 }
 
-function LoginRoutes() {
+function LoginRoutes({mostrarError}) {
   return (
     <Switch>
       <Route
+        path="/upload/"
+        render={props => <Upload {...props}  mostrarError={mostrarError} />}
+      />
+
+      <Route
         path="/"
-        component={() => <Main center><h1>Soy el feed</h1></Main>}
+        render={props => <Feed {...props}  mostrarError={mostrarError} />}
+
         default
       />
+      
     </Switch>
   )
 

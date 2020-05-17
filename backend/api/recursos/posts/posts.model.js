@@ -38,13 +38,11 @@ const postSchema = new mongoose.Schema(
 );
 
 postSchema.virtual('comentarios', {
-  ref: 'comentario', // The model to use
-  localField: '_id', // Find people where `localField`
-  foreignField: 'post', // is equal to `foreignField`
-  // If `justOne` is true, 'members' will be a single doc as opposed to
-  // an array. `justOne` is false by default.
+  ref: 'comentario', 
+  localField: '_id', 
+  foreignField: 'post', 
   justOne: false,
-  options: { sort: { fecha_creado: 1 } } // Query options, see http://bit.ly/mongoose-query-options
+  options: { sort: { fecha_creado: 1 } } 
 });
 
 postSchema
