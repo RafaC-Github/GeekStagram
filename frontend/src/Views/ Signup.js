@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Main from '../Components/Main'
-import virus from '../Images/virus.png'
+import virus from '../Images/logo.png'
 import {Link} from 'react-router-dom'
 
 export default function Signup({signup, mostrarError}) {
@@ -64,7 +64,7 @@ export default function Signup({signup, mostrarError}) {
                             <button className="Form__submit" type="submit">Registrarse</button>
                         </form>
                         
-                        <p className="FormCointainer_info">¿Ya tienes cuenta?<Link to="/login"> Login</Link></p>
+                        <p className="FormContainer__info">¿Ya tienes cuenta?{' '}<Link to="/login"> Login</Link></p>
                    
 
 

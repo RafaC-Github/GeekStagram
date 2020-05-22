@@ -4,6 +4,7 @@ const log = require('../../utils/logger');
 const config = require('../../config');
 const usuarioController = require('../recursos/usuarios/usuarios.controller');
 
+
 let jwtOptions = {
   secretOrKey: config.jwt.secreto,
   jwtFromRequest: passportJWT.ExtractJwt.fromAuthHeaderAsBearerToken()

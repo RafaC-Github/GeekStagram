@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {Link} from 'react-router-dom'
 import Main from '../Components/Main'
+import virus from '../Images/logo.png'
 
 export default function Login({login, mostrarError}){
 
@@ -37,17 +38,24 @@ export default function Login({login, mostrarError}){
 
     return (
         <Main center>
+            <div className="Signup">
+            <img src={virus} className="Signup__img" alt=""></img>
             <div className="FormContainer">
+                
                 <h1 className="Form__titulo">Geekstagram</h1>
+                <p className="FormContainer__info">
+                        Inicia sesión
+                    </p>
                 <div>
                     <form onSubmit={handleSubmit}>
                     <input type="email" name="email" placeholder="Email" className="Form__field"  onChange={handleInputChange} value={emailYPassword.email} required/>
                     <input type="password" name="password" placeholder="Contraseña" className="Form__field"  onChange={handleInputChange} value={emailYPassword.password}required />
                     <button className="Form__submit" type="submit">Iniciar sesión</button>
-                    <p className="FormContainer__info"> No tienes cuenta?<Link to="/signup">Registrarse</Link></p>
+                    <p className="FormContainer__info"> No tienes cuenta?{' '}<Link to="/signup">Registrarse</Link></p>
 
                     </form>
                 </div>
+            </div>
             </div>
 
         </Main>
