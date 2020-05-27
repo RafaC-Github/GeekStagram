@@ -31,7 +31,7 @@ let validarUsuario = (req, res, next) => {
     next();
   } else {
     log.info(
-      'Producto falló la validación',
+      'Falló la validación',
       resultado.error.details.map(error => error.message)
     );
     res

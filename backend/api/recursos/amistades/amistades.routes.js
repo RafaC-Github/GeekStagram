@@ -20,7 +20,7 @@ amistadesRouter.get(
   })
 );
 
-// Ruta que responde ¿Estoy siguiendo al usuario con el :id?
+// Ruta que responde ¿Estoy siguiendo al usuario con el :id
 amistadesRouter.get(
   '/:id/siguiendo',
   [jwtAuthenticate, validarId],

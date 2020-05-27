@@ -201,7 +201,7 @@ function esconderCamposSensibles(usuario) {
     nombre: usuario.nombre,
     imagen: usuario.imagen,
     siguiendo: usuario.siguiendo,
-    // Restar 1 porqe el usuario se sigue a si mismo para calcular el feed
+    // Restar 1 porqe el usuario se sigue a si mismo
     numSeguidores: usuario.numSeguidores - 1,
     numSiguiendo: usuario.numSiguiendo - 1
   };
